@@ -1,6 +1,6 @@
-FROM golang
+FROM alpine
 
-COPY spy.go spy.go
+RUN  apk --update --no-cache add strace socat
 
 VOLUME /var/run
-CMD go run spy.go
+CMD socat -v UNIX-LISTEN:/var/run/docker.sock,fork UNIX:/var/run/real-docker.sock
