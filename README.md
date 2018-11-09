@@ -3,7 +3,9 @@
 
 # Docker API Spy
 
-Dockspy allows to inspect traffic between your own container and docker daemon to track API usage and payload
+DockSpy allows to inspect traffic between your own container and docker daemon to track API usage and payload
+
+![spy](spy.jpg)
 
 ## Usage
 
@@ -82,3 +84,4 @@ Server: Docker Engine - Community
 
 
 ```
+ 
