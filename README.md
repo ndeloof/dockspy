@@ -1,3 +1,6 @@
+
+[![Docker Automated build](https://img.shields.io/docker/automated/ndeloof/dockspy.svg)](https://hub.docker.com/r/ndeloof/dockspy)
+
 # Docker API Spy
 
 Dockspy allows to inspect traffic between your own container and docker daemon to track API usage and payload
