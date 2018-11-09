@@ -7,9 +7,9 @@ Dockspy allows to inspect traffic between your own container and docker daemon t
 
 ## Usage
 
-Run dockspy container bind-mounting actual docker daemon socker as `target.sock`.
+Run dockspy container bind-mounting actual docker daemon socker as `real-docker.sock`.
 ```sh
-docker run --rm --name dockspy -v /var/run/docker.sock:/target.sock ndeloof/dockspy
+docker run --rm --name dockspy -v /var/run/docker.sock:/real-docker.sock ndeloof/dockspy
 ```
 
 Then run your own container, which will rely on docker API, re-using volumes from dockerspy (which includes a spoofed /var/run/docker.sock)
@@ -22,7 +22,7 @@ docker run --volumes-from dockerspy your_container
 dockspy :
 
 ```sh
-➜  docker run --rm --name dockspy -v /var/run/docker.sock:/target.sock ndeloof/dockspy 
+➜  docker run --rm --name dockspy -v /var/run/docker.sock:/real-docker.sock ndeloof/dockspy 
 >  GET /_ping HTTP/1.1
 Host: docker
 User-Agent: Docker-Client/18.06.1-ce (linux)
