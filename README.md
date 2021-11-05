@@ -11,11 +11,12 @@ DockSpy allows to inspect traffic between your own container and docker daemon t
 
 Run dockspy container bind-mounting actual docker daemon socker as `real-docker.sock`.
 ```sh
-docker run --rm --name dockspy -v /var/run/docker.sock:/real-docker.sock ndeloof/dockspy
+docker run --rm --name dockspy -v /var/run/docker.sock:/var/run/docker.sock -p 2375:2375 ndeloof/dockspy
 ```
 
 Then run your own container, which will rely on docker API, re-using volumes from dockerspy (which includes a spoofed /var/run/docker.sock)
 ```sh
+export DOCKER_HOST=tcp://localhost:2375
 docker run --volumes-from dockerspy your_container
 ```
 
